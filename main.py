@@ -10,11 +10,18 @@
     - Date deve ser escrito no formato DD:MM:AA, por exemplo: 2/7/2021
 '''
 
+import os
+import platform
 import numpy as np
 from ReductionFunctions.calculus import coordReduction
 
 def main():
     run = True
+
+    if platform.system() == 'Windows':
+        os.system('cls')
+    elif platform.system() == 'Linux' or platform.system() == 'Darwin':
+        os.system('clear')
 
     while run:
         alpha = delta = date = np.array([])
