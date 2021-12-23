@@ -13,7 +13,7 @@
 import os
 import platform
 import numpy as np
-from ReductionFunctions.calculus import coordReduction
+from PrecessionFunctions.calculus import coordReduction
 
 def main():
     run = True
@@ -67,7 +67,7 @@ def main():
         print(f'\nDelta: {delta[0]}º {delta[1]}\' {delta[2]}"\n')
 
         while len(date) != 3:
-            dateInput = str(input('Date: ')).replace(' ', '')
+            dateInput = str(input('Data: ')).replace(' ', '')
 
             if dateInput.count('/') == 2:
                 try:
@@ -83,6 +83,9 @@ def main():
 
         print(f'\nData: {date[0]}/{date[1]}/{date[2]}\n')
 
+        alpha = np.array(alpha)
+        delta = np.array(delta)
+        date = np.array(date)
         coordReduction(alpha, delta, date)
 
         if input('\nDeseja usar a aplicação novamente? [S/N] ').upper() not in ['S', 'SIM', 'Y', 'YES']:
